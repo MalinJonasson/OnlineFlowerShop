@@ -1,0 +1,76 @@
+.cart-btn {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    display: flex;
+    align-items: center; /* Centrera ikonen vertikalt */
+    padding-left: 24px; /* Lägg till utrymme för ikonen */
+    color: rgb(175, 165, 174);
+    cursor: pointer;
+    border: none; /* Ta bort standardramen */
+    background: none; /* Ta bort bakgrundsfärgen */
+}
+
+.cart-btn::before {
+    content: '\f07a'; /* Unicode-tecken för Font Awesome ikonen "shopping-cart" */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900; /* Välj önskad fontvikt */
+    margin-right: 8px; /* Lägg till utrymme mellan ikonen och texten */
+}
+
+.cart-box {
+    position: absolute;
+    top: 50px; /* Justera efter behov */
+    left: 1000px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Lägg till rundade hörn */
+    width: 250px; /* Gör rutan något bredare än logga in-rutan */
+}
+
+/* Styla kundvagnsboxen */
+.cart-box h2 {
+    margin-top: 0;
+}
+
+.cart-box .cart-items {
+    display: flex;
+    flex-direction: column; 
+    flex-grow: 1;
+}
+
+.cart-box .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-box .cart-item img {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+.cart-box .cart-item .remove-btn {
+    background-color: rgb(175, 165, 174);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.cart-box .total {
+    font-weight: bold;
+}
+
+.cart-box .pay-btn {
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: rgb(175, 165, 174);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}

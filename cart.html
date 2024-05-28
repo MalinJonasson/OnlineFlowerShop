@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="cart.css">
 </head>
 <body>
+    
+    <button class="cart-btn">Cart</button>
     <div class="cart-box">
         <h2>Kundvagn</h2>
         <div class="cart-items">
+            <div class="cart-item">
+                <span class="item-name"></span>
+                <span class="item-price"></span>
+            </div>
         </div>
         <div class="total">Total: <span class="total-amount"></span></div>
-        <button class="pay-btn">Betala</button>
+        <button class="pay-btn">Pay</button>
     </div>
-
+    
+    <script src="cart.js"></script>
     <script src="flowers.js"></script>
     <script src="script.js"></script>
+    <script src="localstorage.js"></script>
 </body>
 </html>
+

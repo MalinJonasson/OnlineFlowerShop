@@ -3,7 +3,7 @@
     grid-template-columns: auto 1fr auto;
     grid-template-rows: auto 1fr auto; 
     min-height: 100vh; 
-} 
+}
 
 .header {
     background-color: rgb(255, 255, 255);
@@ -12,182 +12,89 @@
     text-align: center;
     font-size: 35px;
     color: rgb(175, 165, 174);
-    font-family:Lucida Sans;
+    font-family: Lucida Sans;
     font-weight: bolder;
     grid-row: 1;
     grid-column: 1 / -1; 
-    
-    /* position: relative; */
 }
 
-.headerflowers1{
+.headerflowers1,
+.headerflowers2,
+.headerflowers3 {
     width: 40px;
     height: 40px;
-    margin-right: 20xp;
+    margin-right: 20px;
 }
 
-.headerflowers2{
-    width: 40px;
-    height: 40px;
-}
-
-.headerflowers3{
-    width: 40px;
-    height: 40px;
-}
-@media (max-width: 600px) {
-    /* Visa header och rubrik */
-    .header {
-        display: block;
-    }
-
-    /* Visa login- och kundvagnsikoner till höger */
-    .login-btn {
-        top: 15px;
-        right: 70px;
-    }
-
-    .cart-btn {
-        top: 15px;
-        right: 20px;
-    }
-
-    /* Dölj välkomstmeddelandet med cirkeln */
-    .circle,
-    .welcome-message {
-        display: none !important; /* !important för att överskrida andra regler */
-    }
-
-    .menu {
-        display: none;
-    }
-
-    /* Dölj aside */
-    .aside {
-        display: none;
-    }
-
-    /* Justera bilder i main för proportionell storlek */
-    .main img {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Placera "About Us" precis under rubriken */
-    .about-us {
-        grid-row: 2;
-        grid-column: 1 / -1;
-    }
-
-    /* Placera "Contact" under "About Us" */
-    .contact {
-        grid-row: 3;
-        grid-column: 1 / -1;
-    }
-
-    /* Flytta upp tre sträck till header */
-    .hamburger-menu {
-        position: absolute;
-        top: 20px; /* Justera efter behov */
-        left: 20px; /* Justera efter behov */
-    }
-
-    /* Styla hamburgarmenyn */
-    .menu-icon {
-        width: 30px;
-        height: 20px;
-        cursor: pointer;
-    }
-
-    .line {
-        width: 100%;
-        height: 2px;
-        background-color: black;
-        margin: 4px 0;
-        transition: transform 0.3s;
-    }
-
-    .menu-items {
-        display: none;
-        position: absolute;
-        top: 30px;
-        left: 0;
-        background-color: white;
-        padding: 10px;
-    }
-
-    .menu-items a {
-        display: block;
-        text-decoration: none;
-        color: black;
-        padding: 5px 0;
-    }
-
-    .menu-items a:hover {
-        background-color: lightgray;
-    }
-
-    /* Uppdatera grid-template-columns för att placera bilderna under varandra */
-    .main {
-        grid-template-columns: auto !important;
-    }
-
-    .frontflowers{
-        width: 100%;
-        height: 250px !important;
-        
-    }
-        
-}
 .welcome-message {
     color: rgb(175, 165, 174);
     font-size: 15px;
-    margin-left: 950px; /* Behåll denna för att positionera horisontellt */
-    font-family:Lucida Sans;
+    margin-left: 950px; 
+    font-family: Lucida Sans;
     padding: 10px;
     background-color: white;
-    position: absolute; /* Lägg till positionering */
-    top: 25px; /* Justera detta värde för att flytta meddelandet upp eller ner */
+    position: absolute; 
+    top: 25px; 
 }
 
- .header input[type="text"] {
+.header input[type="text"] {
     position: absolute;
     top: 14%;
     right: 870px;
     padding-right: 150px;
     transform: translateY(-50%);
-
 }
+
 .main {
-    grid-column: 1 / 3;
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     row-gap: 3px;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto;
+    justify-items: center; 
+    align-items: start;
+    position: relative;
 }
 
-.frontflowers{
-width: 100%;
-height: 500px;
-
+.frontflowers {
+    width: 100%;
+    height: 500px;
 }
 
-.shop-main {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamiskt antal kolumner med minsta bredd på 200px */
-    grid-gap: 10px; /* Avstånd mellan bilderna */
-    justify-content: center; /* Centrera kolumnerna horisontellt */
+#AboutUs {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px; 
+    background: rgb(175, 165, 174); 
 }
+
 .aside {
     background-color: white;
-    padding-left: 75px;
-    margin-right: 20xp;
-    font-size: 35px;
+    padding: 20px;
+    font-size: 15px; 
     color: rgb(175, 165, 174);
-    font-family:Lucida Sans;
-    font-weight: bolder;
-    grid-row: 2;
-    grid-column: 3;
+    font-family: Lucida Sans;
+    max-width: 200px; 
+    overflow: hidden;
+    grid-template-columns: 200px !important; 
+}
+
+.aside h2 {
+    margin-bottom: 10px;
+}
+
+.aside ul {
+    padding-left: 20px; 
+    list-style-type: disc; 
+}
+
+.aside p {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.aside li {
+    margin-bottom: 5px;
 }
 
 .footer {
@@ -197,91 +104,17 @@ height: 500px;
     text-align: center;
     font-size: 15px;
     color: white;
-    font-family:Lucida Sans;
+    font-family: Lucida Sans;
     font-weight: bolder;
-    grid-column: 1 / -1; /* Sträck över alla kolumner */
+    grid-column: 1 / -1;
     grid-row: 4; 
 }
 
-.flower {
-    position: relative;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* En semi-transparent svart bakgrund */
-    display: none; /* Döljer initialt overlay-container */
-    justify-content: center;
-    align-items: center;
-}
-
-.overlay-content {
-    text-align: center;
-    color: white;
-}
-
-.flower:hover .overlay {
-    display: flex; /* Visar overlay-container när användaren hovrar över blomman */
-}
-
-.flower img {
-    width: 100%; /* Bilderna fyller sina föräldraelement */
-    height: auto; /* Bibehåller bildförhållandet */
-}
-
-.text {
-    text-align: center; /* Centrerar texten */
-}
-
-
-.cart-btn {
-    position: absolute;
-    top: 35px;
-    right: 10px;
-    display: flex;
-    align-items: center; /* Centrera ikonen vertikalt */
-    padding-left: 24px; /* Lägg till utrymme för ikonen */
-    color: rgb(175, 165, 174);
-    cursor: pointer;
-    border: none; /* Ta bort standardramen */
-    background: none; /* Ta bort bakgrundsfärgen */
-  }
-  
-  .cart-btn::before {
-    content: '\f07a'; /* Unicode-tecken för Font Awesome ikonen "shopping-cart" */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900; /* Välj önskad fontvikt */
-    margin-right: 8px; /* Lägg till utrymme mellan ikonen och texten */
-  }
-.login-btn {
-    position: absolute;
-    top: 35px;
-    right: 100px;
-    display: flex;
-    color: rgb(175, 165, 174);
-    align-items: center; /* Centrera ikonen vertikalt */
-    padding-left: 24px; /* Lägg till utrymme för ikonen */
-    cursor: pointer;
-    border: none; /* Ta bort standardramen */
-    background: none; /* Ta bort bakgrundsfärgen */
-  }
-  
-  .login-btn::before {
-    content: '\f2f6'; /* Unicode-tecken för Font Awesome ikonen "sign-in-alt" */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900; /* Välj önskad fontvikt */
-    margin-right: 8px; /* Lägg till utrymme mellan ikonen och texten */
-  }
-  .menu {
+.menu {
     position: absolute;
     top: 10px;
-    left: 20px; /* Justera detta värde för att flytta menyn till höger */
-    width: auto; /* Ändra till auto för att menyn ska vara bredd baserat på innehållet */
-    /* background-color: rgb(237, 234, 225); */
+    left: 20px;
+    width: auto;
     padding: 10px;
 }
 
@@ -299,17 +132,14 @@ height: 500px;
     font-size: 15px;
 }
 
-.text h2{
+.text h2, .text p {
     font-family: Lucida Sans;
 }
 
-.text p{
-    font-family:Lucida Sans;
-}
 .circle {
     position: absolute;
-    top: 90px;
-    right: 150px; 
+    bottom: 625px;
+    left: 900px; 
     width: 150px;
     height: 150px;
     background-color: rgb(175, 165, 174);
@@ -318,93 +148,67 @@ height: 500px;
     justify-content: center;
     align-items: center;
     color: #fff; 
-    font-family:Lucida Sans;
+    font-family: Lucida Sans;
     font-size: 25px; 
     text-align: center;
     transform: rotate(45deg);
 }
 
+.login-btn {
+    position: absolute;
+    top: 35px;
+    right: 100px;
+    display: flex;
+    color: rgb(175, 165, 174);
+    align-items: center; 
+    padding-left: 24px; 
+    cursor: pointer;
+    border: none; 
+    background: none;
+}
+  
+.login-btn::before {
+    content: '\f2f6'; 
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 8px;
+}
+
 .login-box {
     position: absolute;
-    top: 50px; /* Justera efter behov */
+    top: 50px;
     left: 1000px;
     background-color: white;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px; /* Lägg till rundade hörn */
-    width: 200px; /* Gör rutan bredare */
+    border-radius: 10px;
+    width: 200px;
 }
 
-/* Styla logga in-rutan */
 .login-box h2 {
     margin-top: 0;
 }
 
 .login-box input {
-    width: calc(100% - 20px); /* Justera inputbredden för att passa rutan */
+    width: calc(100% - 20px);
     margin-bottom: 10px;
     padding: 5px;
 }
 
 .login-box .login-submit-btn {
-    width: calc(100% - 20px); /* Justera knappbredden för att passa rutan */
+    width: calc(100% - 20px);
     padding: 10px;
     background-color: rgb(175, 165, 174);
     color: white;
     border: none;
     cursor: pointer;
 }
-.cart-box {
-    position: absolute;
-    top: 50px; /* Justera efter behov */
-    left: 1000px;
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px; /* Lägg till rundade hörn */
-    width: 250px; /* Gör rutan något bredare än logga in-rutan */
-}
 
-/* Styla kundvagnsboxen */
-.cart-box h2 {
-    margin-top: 0;
-}
-
-.cart-box .cart-items {
-    margin-bottom: 10px;
-}
-
-.cart-box .cart-item {
+.footer {
     display: flex;
-    align-items: center;
-    margin-bottom: 5px;
 }
 
-.cart-box .cart-item img {
-    width: 50px;
-    height: auto;
-    margin-right: 10px;
-}
-
-.cart-box .cart-item .remove-btn {
-    background-color: rgb(175, 165, 174);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-left: auto;
-}
-
-.cart-box .total {
-    font-weight: bold;
-}
-
-.cart-box .pay-btn {
-    width: calc(100% - 20px); /* Justera knappbredden för att passa rutan */
-    padding: 10px;
-    background-color: rgb(175, 165, 174);
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
+.column {
+    flex: 1;
+    padding: 20px;
 }

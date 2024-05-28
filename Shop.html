@@ -7,44 +7,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Shop.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
 <body>
-    <style> 
+    <style>
         body {
-            background-color:rgb(175, 165, 174); 
+            background-color: rgb(175, 165, 174);
             margin: 0;
             overflow-x: hidden;
         }
-      </style>
+    </style>
 
-<div class="wrapper">
-    <div class="header"> Flower Shop
-        <nav class="menu">
-            <ul>
-                <li><a href="OnlineButik.html">Startsida</a></li>
-                <li><a href="Shop.html">Shop</a></li>
-                <li><a href="#AboutUs">About Us</a></li>
-                <li><a href="#Contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <div class="wrapper">
+        <div class="header"> Flower Shop
+            <nav class="menu">
+                <ul>
+                    <li><a href="OnlineButik.html">Startsida</a></li>
+                    <li><a href="Shop.html">Shop</a></li>
+                    <li><a href="OnlineButik.html#AboutUs">About Us</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
         <div id="flowers" class="flowers"></div>
-    <div class="footer">
-        <div class="textFooter" id ="Contact">
-            <h2>Contact</h2>
-            <p>Here we have all our contatcs</p>
+        <div class="footer" id="Contact">
+            <div class="column" id="column1"></div>
+            <div class="column" id="column2"></div>
         </div>
     </div>
-</div>
 
-<button class="cart-btn">Cart</button>
-<button class="login-btn">Log in</button>
-<div id="welcome-message-container"></div>
-<!-- <div class="cart-items"></div> -->
-<div class="cart-total"></div>
+    <button class="cart-btn">Cart</button>
+    <button class="login-btn">Log in</button>
+    <div id="welcome-message-container"></div>
 
-<script src="flowers.js"></script>
-<script src="User.js"></script>
-<script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="flowers.js"></script>
+    <script src="contact.js"></script>
+    <script src="User.js"></script>
+    <script src="login.js"></script>
+    <script src="localstorage.js"></script>
 </body>
 </html>

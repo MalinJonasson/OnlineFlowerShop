@@ -6,6 +6,7 @@
     <title>FlowerShop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
 <body>
     <style> 
@@ -38,41 +39,25 @@
                 Welcome!
             </div>
         <div class="text" id ="AboutUs">
-            <h2>About Us</h2>
-            <p>Here we have a description</p>
         </div>
     </div>
     <div class="aside">aside</div>
-    <div class="footer">
-        <div class="textFooter" id ="Contact">
-            <h2>Contact</h2>
-            <p>Here we have all our contatcs</p>
-        </div>
+    <div class="footer" id ="Contact">
+        <div class="column" id="column1"></div>
+        <div class="column" id="column2"></div>
     </div>
 </div>
 
-<div class="hamburger-menu">
-    <div class="menu-icon" onclick="toggleMenu()">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <div class="menu-items">
-      <a href="#">Startsida</a>
-      <a href="#">Shop</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-  
 <button class="cart-btn">Cart</button>
 <button class="login-btn">Log in</button>
 <div id="welcome-message-container"></div>
-<div class="cart-items"></div>
-<div class="cart-total"></div>
 
+<script src="script.js"></script>
+<script src="cart.js"></script>
+<script src="contact.js"></script>
 <script src="flowers.js"></script>
 <script src="User.js"></script>
-<script src="script.js"></script>
+<script src="login.js"></script>
+<script src="localstorage.js"></script>
 </body>
 </html>

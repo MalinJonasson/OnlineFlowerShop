@@ -1,145 +1,54 @@
-// Funktion för att kontrollera inloggningsuppgifter och spara användarinformation i localStorage
-function login(username, password) {
-    const user = users.find(user => user.name === username && user.password === password);
-    if (user) {
-        localStorage.setItem('loggedInUser', JSON.stringify(user));
-        // Anropa displayWelcomeMessage för att visa välkomstmeddelandet
-        displayWelcomeMessage();
-        return true;
-    }
-    return false;
-}
-// Lyssna på ändringar i localStorage för att synkronisera inloggningsstatus mellan flikar
-window.addEventListener('storage', (e) => {
-    if (e.key === 'loggedInUser') {
-        updateLoginButtonText();
-        displayWelcomeMessage(); // Uppdatera välkomstmeddelandet
-    }
-});
-
-// Funktion för att uppdatera knapptexten baserat på inloggningsstatus
-function updateLoginButtonText() {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    document.querySelectorAll('.login-btn').forEach(button => {
-        button.textContent = loggedInUser ? 'Log out' : 'Log in';
-    });
-}
-
-// Uppdatera knapptexten när sidan laddas
-document.addEventListener('DOMContentLoaded', updateLoginButtonText);
-// Funktion för att visa välkomstmeddelandet om en användare är inloggad
-
-// Funktion för att visa välkomstmeddelandet om en användare är inloggad
-function displayWelcomeMessage() {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    const welcomeMessageContainer = document.querySelectorAll('#welcome-message-container');
-    
-    document.querySelectorAll('.welcome-message').forEach(message => {
-        message.remove();
-    });
-    // Kontrollera om det finns en inloggad användare
-    if (loggedInUser) {
-        welcomeMessageContainer.forEach(container => {
-            const welcomeMessage = document.createElement('div');
-            welcomeMessage.textContent = `Hej, ${loggedInUser.name}!`;
-            welcomeMessage.classList.add('welcome-message');
-            container.appendChild(welcomeMessage);
-        });
-    }
-}
-
-// Uppdatera välkomstmeddelandet när sidan laddas
-document.addEventListener('DOMContentLoaded', displayWelcomeMessage);
-
-// Funktion för att logga ut användaren
-function logout() {
-    localStorage.removeItem('loggedInUser');
-    // Uppdatera knappens text till "Logga in"
-    document.querySelectorAll('.login-btn').forEach(button => {
-        button.textContent = 'Log in';
-    });
-    // Ta bort välkomstmeddelandet från DOM:en
-    document.querySelectorAll('.welcome-message').forEach(message => {
-        message.remove();
-    });
-}
-
-// Lyssna på klickhändelser för att visa login-boxen och hantera inloggning/utloggning
-document.querySelectorAll('.login-btn').forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.stopPropagation();
-        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-        
-        // Om ingen användare är inloggad, visa inloggningsrutan och hantera inloggning
-        if (!loggedInUser) {
-            loadLoginBox();
-        } else {
-            // Om användaren är inloggad, logga ut användaren
-            logout();
-        }
-    });
-});
-
-// Ladda in login-boxen dynamiskt
-function loadLoginBox() {
-    fetch('login.html')
-    .then(response => response.text())
-    .then(data => {
-        const loginBoxContainer = document.createElement('div');
-        loginBoxContainer.innerHTML = data;
-        document.body.appendChild(loginBoxContainer);
-
-        // Lägg till händelselyssnare för att dölja login-boxen när användaren klickar utanför den
-        document.addEventListener('click', function(event) {
-            const loginBox = document.querySelector('.login-box');
-            if (loginBox && !loginBox.contains(event.target) && event.target !== document.querySelector('.login-btn')) {
-                loginBox.remove();
-            }
-        });
-
-        // Lägg till händelselyssnare för att skicka inloggningsuppgifterna
-        const loginForm = document.querySelector('.login-form');
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const isLoggedIn = login(username, password);
-            if (isLoggedIn) {
-                displayWelcomeMessage();
-                document.querySelectorAll('.login-btn').forEach(button => {
-                    button.textContent = 'Log out';
-                });
-            } else {
-                console.log('Fel användarnamn eller lösenord. Försök igen.');
-            }
-        });
-    });
-}
-
-// Ladda in välkomstmeddelandet när sidan laddas
-displayWelcomeMessage();
-
- 
-function toggleMenu() {
-    var menuItems = document.querySelector('.menu-items');
-    menuItems.classList.toggle('show');
+document.addEventListener("DOMContentLoaded", function() {
+  // Function to insert information into the "About Us" section
+  function insertAboutUsInfo() {
+      var aboutUsSection = document.querySelector('#AboutUs');
+      
+      // Create and append the h2 element
+      var heading = document.createElement('h2');
+      heading.textContent = "About Us";
+      aboutUsSection.appendChild(heading);
+      
+      // Create and append the paragraph element with the description
+      var description = document.createElement('p');
+      description.innerHTML = "FlowerShop thrives on a passion for nature and a commitment to enhancing lives with beauty. <br>" +
+          "Inspired by the elegance of flowers and the artistry of gardens, we create sanctuaries of tranquility. <br>" +
+          "Our team crafts exquisite arrangements, fostering sustainability and inviting all to experience <br>" +
+          "the harmony of nature's embrace.";
+      aboutUsSection.appendChild(description);
+      
   }
-//    // Hantera klickhändelser för köp-knappar
-//    document.querySelectorAll('.buy-btn').forEach(button => {
-//     button.addEventListener('click', function() {
-//         const flowerDiv = this.parentElement;
-//         const flowerName = flowerDiv.dataset.name;
-//         const flower = flowers.find(f => f.name === flowerName);
-//         if (flower) {
-//             addToCart(flower);
-//         }
-//     });
-// });
 
-// // Funktion för att lägga till blomma i varukorgen
-// function addToCart(flower) {
-//     const cart = document.getElementById('cart');
-//     const li = document.createElement('li');
-//     li.textContent = `${flower.name} - ${flower.price} kr`;
-//     cart.appendChild(li);
-// }
+  insertAboutUsInfo();
+  // Function to insert information into the "aside" section
+  function insertAsideInfo() {
+      var asideSection = document.querySelector('.aside');
+      
+      // Clear any existing content
+      asideSection.innerHTML = '';
+
+      // Create and append a heading
+      var asideHeading = document.createElement('h2');
+      asideHeading.textContent = "Interesting Facts";
+      asideSection.appendChild(asideHeading);
+
+      // Create and append a list of facts
+      var factList = document.createElement('ul');
+
+      var facts = [
+          "Flowers have been used for thousands of years for medicinal purposes.",
+          "There are over 400,000 species of flowering plants in the world.",
+          "Some flowers can change their color to attract different pollinators.",
+          "The largest flower in the world is the Rafflesia arnoldii, which can grow up to 3 feet in diameter."
+      ];
+
+      facts.forEach(function(fact) {
+          var listItem = document.createElement('li');
+          listItem.textContent = fact;
+          factList.appendChild(listItem);
+      });
+
+      asideSection.appendChild(factList);
+  }
+
+  insertAsideInfo();
+});
